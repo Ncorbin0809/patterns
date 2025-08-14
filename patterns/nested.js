@@ -7,18 +7,18 @@
  * @returns `[]` if either argument is 0 or negative
  */
 export function makeBoard(rows, cols) {
-  if (typeof rows !== "number" || typeof cols !== "number") return null;
-  if (rows <= 0 || cols <= 0) return [];
+  if (typeof rows !== 'number' || typeof cols !== 'number') return null
+  if (rows <= 0 || cols <= 0) return []
 
-  const board = [];
+  const board = []
   for (let i = 0; i < rows; i++) {
-    const row = [];
+    const row = []
     for (let j = 0; j < cols; j++) {
-      row.push("-");
+      row.push('-')
     }
-    board.push(row);
+    board.push(row)
   }
-  return board;
+  return board
 }
 
 /**
@@ -36,7 +36,21 @@ export function makeBoard(rows, cols) {
  * @returns `[]` if `size` is 0 or negative
  */
 export function makeTriangle(size) {
-  // TODO
+  if (typeof size !== 'number') {
+    return null
+  } else if (size <= 0) {
+    return []
+  }
+  const triangle = []
+
+  for (let row = 1; row <= size; row++) {
+    const currentRow = []
+    for (let col = 0; col < row; col++) {
+      currentRow.push('-')
+    }
+    triangle.push(currentRow)
+  }
+  return triangle
 }
 
 /**
@@ -46,5 +60,16 @@ export function makeTriangle(size) {
  * @returns `0` if `letter is not a string
  */
 export function countLetter(words, letter) {
-  // TODO
+  if (typeof letter !== 'string') return 0
+
+  let count = 0
+
+  for (let i = 0; i < words.length; i++) {
+    for (let j = 0; j < words[i].length; j++) {
+      if (words[i][j] === letter) {
+        count += 1
+      }
+    }
+  }
+  return count
 }

@@ -5,13 +5,13 @@
  * @returns `0` if n is 0 or negative
  */
 export function sumToN(n) {
-  if (typeof n !== "number") return NaN;
+  if (typeof n !== 'number') return NaN
 
-  let sum = 0;
+  let sum = 0
   for (let i = 1; i <= n; i++) {
-    sum += i;
+    sum += i
   }
-  return sum;
+  return sum
 }
 
 /**
@@ -22,7 +22,19 @@ export function sumToN(n) {
  * @returns `1` if n is 0
  */
 export function factorial(n) {
-  // TODO
+  let product = 1
+  if (typeof n !== 'number') {
+    return NaN
+  } else if (n < 0) {
+    return undefined
+  } else if (n === 0) {
+    return 1
+  } else {
+    for (let i = 1; i <= n; i++) {
+      product *= i
+    }
+  }
+  return product
 }
 
 /**
@@ -32,7 +44,17 @@ export function factorial(n) {
  * @returns `[]` if n is 0 or negative
  */
 export function buildNArray(n) {
-  // TODO
+  let arr = []
+  if (typeof n !== 'number') {
+    return null
+  }
+  if (n === 0 || n <= 0) {
+    return []
+  }
+  for (let i = 1; i <= n; i++) {
+    arr.push(i)
+  }
+  return arr
 }
 
 /**
@@ -40,7 +62,13 @@ export function buildNArray(n) {
  * @returns {string} the longest string in `strings`
  */
 export function getLongestString(strings) {
-  // TODO
+  let longest = ''
+  for (let i = 0; i < strings.length; i++) {
+    if (strings[i].length > longest.length) {
+      longest = strings[i]
+    }
+  }
+  return longest
 }
 
 /**
@@ -48,7 +76,13 @@ export function getLongestString(strings) {
  * @returns {number} the number of students present
  */
 export function countPresent(attendance) {
-  // TODO
+  let studentsPresent = 0
+  for (let i = 0; i < attendance.length; i++) {
+    if (attendance[i] === true) {
+      studentsPresent += 1
+    }
+  }
+  return studentsPresent
 }
 
 /**
@@ -61,6 +95,22 @@ export function countPresent(attendance) {
  * @returns {string} the complementary DNA strand
  * @returns `null` if `dna` is not a string
  */
+
 export function complementDNA(dna) {
-  // TODO
+  if (typeof dna !== 'string') return null
+
+  const complements = {
+    A: 'T',
+    T: 'A',
+    C: 'G',
+    G: 'C',
+  }
+
+  let result = ''
+
+  for (let i = 0; i < dna.length; i++) {
+    const nucleoBase = dna[i]
+    result += complements[nucleoBase]
+  }
+  return result
 }
